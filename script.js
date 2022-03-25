@@ -2,6 +2,12 @@ let count = 1;
 document.getElementById('add-btn').addEventListener('click', function(){
     let inputField = document.getElementById('input-field');
     const tableBody = document.getElementById('table-body');
+   
+    // condition input 
+    if(inputField.value == ''){
+        return alert('Please Input A String/Word Value');
+    }
+
     //create element
     const createTr = document.createElement('tr');
     createTr.innerHTML  = `
@@ -14,6 +20,7 @@ document.getElementById('add-btn').addEventListener('click', function(){
         </td>
     </tr>
   `;
+    
     //add created element in parent
     tableBody.appendChild(createTr);
 
@@ -34,4 +41,11 @@ document.getElementById('add-btn').addEventListener('click', function(){
             e.target.parentNode.parentNode.style.textDecoration = 'line-through';
         })
     }
+    
+})
+
+//reset button
+document.getElementById('reset-btn').addEventListener('click', function(){
+    const tableBody = document.getElementById('table-body');
+    tableBody.style.display = 'none';
 })
