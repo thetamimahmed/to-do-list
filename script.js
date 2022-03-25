@@ -2,6 +2,7 @@ let count = 1;
 document.getElementById('add-btn').addEventListener('click', function(){
     let inputField = document.getElementById('input-field');
     const tableBody = document.getElementById('table-body');
+    //create element
     const createTr = document.createElement('tr');
     createTr.innerHTML  = `
     <tr>
@@ -13,7 +14,24 @@ document.getElementById('add-btn').addEventListener('click', function(){
         </td>
     </tr>
   `;
+    //add created element in parent
     tableBody.appendChild(createTr);
+
+    //clear input field
     inputField.value = '';
-    
+
+    //delete butoon
+    const deleteBtn = document.getElementsByClassName('delete-btn');
+    for(const btn of deleteBtn){
+        btn.addEventListener('click', function(e){
+            e.target.parentNode.parentNode.style.display = 'none';
+        })
+    }
+    // done button 
+    const doneBtn = document.getElementsByClassName('done-btn');
+    for(const btn of doneBtn){
+        btn.addEventListener('click', function(e){
+            e.target.parentNode.parentNode.style.textDecoration = 'line-through';
+        })
+    }
 })
